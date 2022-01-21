@@ -12,7 +12,8 @@ function formatDate(date) {
 
 function verificaValidade(dataFab, vencimento) {
   var date = new Date(dataFab);
-  var dias = parseInt(vencimento.match(/\d/g).join("")); //Pega todos os numeros encontrados.
+  //Remove todos os caracteres não numericos na string e converte os numeros para inteiro.
+  var dias = parseInt(vencimento.match(/\d/g).join("")); 
   date.setDate(date.getDate() + dias);
   if (date > new Date()) {
     console.log("Validade: " + formatDate(date));
